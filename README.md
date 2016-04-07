@@ -5,6 +5,8 @@ This package is designed to help you easily preview and debug emails sent by you
 
 It is based off of ![themsaid's](https://github.com/themsaid/) ![Laravel Mail Preview Driver](https://github.com/themsaid/laravel-mail-preview) which is extremely helpful for more persistent logging and previewing (including .eml files).
 
+![Example Animation](https://raw.githubusercontent.com/laravelflare/mail-debug/master/example.gif)
+
 [![Latest Stable Version](https://poser.pugx.org/laravelflare/mail-debug/v/stable)](https://packagist.org/packages/laravelflare/mail-debug) [![Total Downloads](https://poser.pugx.org/laravelflare/mail-debug/downloads)](https://packagist.org/packages/laravelflare/mail-debug) [![Latest Unstable Version](https://poser.pugx.org/laravelflare/mail-debug/v/unstable)](https://packagist.org/packages/laravelflare/mail-debug) [![License](https://poser.pugx.org/laravelflare/mail-debug/license)](LICENSE.md)
 
 
