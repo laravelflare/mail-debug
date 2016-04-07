@@ -57,4 +57,7 @@ This is the amount of time to store the preview files for (in minutes). By defau
 
 ## Improvements Required
 
-Currently this only works for the last mail sent in a request. So if your request cycle sends several emails, only the final email will be displayed on the subsequent page request pop-up.
+-    Implement Tests
+
+-    Currently this only works for the last mail sent in a request. If your request cycle sends several emails, only the final email will be displayed on the subsequent page request pop-up.
+
