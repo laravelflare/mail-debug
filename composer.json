@@ -1,0 +1,35 @@
+{
+    "name": "laravelflare/mail-debug",
+    "description": "",
+    "keywords": [
+        "Laravel", "Flare"
+    ],
+    "homepage": "https://github.com/laravelflare/mail-debug",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Laravel Flare",
+            "homepage": "https://github.com/laravelflare"
+        },
+        {
+            "name": "Aden Fraser",
+            "email": "aden@jacobbailey.com",
+            "homepage": "https://github.com/AdenFraser"
+        }
+    ],
+    "require-dev": {
+        "mockery/mockery": "~0.9.1",
+        "phpunit/phpunit": "~4.0",
+        "orchestra/testbench": "~3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelFlare\\MailDebug\\": "src/MailDebug"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelFlare\\MailDebug\\Tests\\": "tests/"
+        }
+    }
+}
