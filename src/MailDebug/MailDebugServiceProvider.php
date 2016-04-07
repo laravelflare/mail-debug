@@ -2,13 +2,13 @@
 
 namespace LaravelFlare\MailDebug;
 
-use Swift_Mailer;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Mail\MailServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use LaravelFlare\MailDebug\MailDebugManager;
+use LaravelFlare\MailDebug\Providers\MailServiceProvider;
 use LaravelFlare\MailDebug\Providers\RouteServiceProvider;
 
-class MailDebugServiceProvider extends MailServiceProvider
+class MailDebugServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
@@ -23,35 +23,12 @@ class MailDebugServiceProvider extends MailServiceProvider
      */
     public function register()
     {
-        parent::register();
-
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(MailServiceProvider::class);
 
         $this->mergeConfig();
 
         $this->registerMailDebugManager();
-    }
-
-    /**
-     * Register the Swift Mailer instance.
-     *
-     * @return void
-     */
-    public function registerSwiftMailer()
-    {
-        if ($this->app['config']['mail.driver'] != 'debug') {
-            parent::registerSwiftMailer();
-
-            return;
-        }
-
-        $this->app['swift.mailer'] = $this->app->share(function ($app) {
-            return new Swift_Mailer(
-                new DebugTransport(
-                    $app->make(MailDebugManager::class)
-                )
-            );
-        });
     }
 
     /**
@@ -62,7 +39,7 @@ class MailDebugServiceProvider extends MailServiceProvider
     private function registerMailDebugManager()
     {
         $this->app['flare.mailDebugManager'] = $this->app->share(function ($app) {
-            return new MailDebug(
+            return new MailDebugManager(
                 $app->make(Filesystem::class)
             );
         });

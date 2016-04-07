@@ -36,8 +36,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        $this->registerMiddleware();
         $this->registerRoutes($router);
+        $this->registerMiddleware();
     }
 
     /**
