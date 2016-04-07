@@ -31,9 +31,6 @@ class MailDebugManager
     public function __construct(Filesystem $files)
     {
         $this->files = $files;
-
-        $this->createPreviewDirectory();
-        $this->cleanOldPreviews();   
     }
 
     /**
@@ -47,9 +44,13 @@ class MailDebugManager
     {
         $this->message = $message;
 
+        $this->createPreviewDirectory();
+
         $this->files->put($this->path(), $this->content());
 
         $this->setSession();
+
+        $this->cleanOldPreviews();
     }
 
     /**

@@ -39,6 +39,12 @@ class MailDebugServiceProvider extends MailServiceProvider
      */
     public function registerSwiftMailer()
     {
+        if ($this->app['config']['mail.driver'] != 'debug') {
+            parent::registerSwiftMailer();
+
+            return;
+        }
+
         $this->app['swift.mailer'] = $this->app->share(function ($app) {
             return new Swift_Mailer(
                 new DebugTransport(
