@@ -10,23 +10,23 @@ use Illuminate\Filesystem\Filesystem;
 class MailDebugManager
 {
     /**
-     * File System Instance
+     * File System Instance.
      * 
      * @var \Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * Message Instance
+     * Message Instance.
      * 
      * @var \Swift_Mime_Message
      */
     protected $message;
 
     /**
-     * __construct 
+     * __construct.
      * 
-     * @param Filesystem $files 
+     * @param Filesystem $files
      */
     public function __construct(Filesystem $files)
     {
@@ -34,9 +34,9 @@ class MailDebugManager
     }
 
     /**
-     * Perform the Debug Mail Actions
+     * Perform the Debug Mail Actions.
      * 
-     * @param  Swift_Mime_Message $message 
+     * @param Swift_Mime_Message $message
      * 
      * @return 
      */
@@ -56,7 +56,7 @@ class MailDebugManager
     /**
      * Was an Email Sent on the Last Request?
      * 
-     * @return boolean
+     * @return bool
      */
     public function wasSent()
     {
@@ -68,7 +68,7 @@ class MailDebugManager
     }
 
     /**
-     * Return the Email Preview Path
+     * Return the Email Preview Path.
      * 
      * @return string
      */
@@ -78,7 +78,7 @@ class MailDebugManager
     }
 
     /**
-     * Return the Debug Mail Storage Path
+     * Return the Debug Mail Storage Path.
      * 
      * @return string
      */
@@ -86,7 +86,7 @@ class MailDebugManager
     {
         return Config::get('mail-debug.path');
     }
-    
+
     /**
      * Returns the path to the email preview file.
      *
@@ -108,9 +108,7 @@ class MailDebugManager
     }
 
     /**
-     * Set the Flare Debug Sent Message Filename into the Session
-     *
-     * @return void
+     * Set the Flare Debug Sent Message Filename into the Session.
      */
     private function setSession()
     {
@@ -120,7 +118,7 @@ class MailDebugManager
     /**
      * Does the Session have an instance of the Flare Debug Email.
      * 
-     * @return boolean
+     * @return bool
      */
     private function hasSession()
     {
@@ -138,7 +136,7 @@ class MailDebugManager
     }
 
     /**
-     * Return the Debug Mail Filename
+     * Return the Debug Mail Filename.
      * 
      * @return string
      */
@@ -169,12 +167,10 @@ class MailDebugManager
 
     /**
      * Create the preview directory if necessary.
-     *
-     * @return void
      */
     private function createPreviewDirectory()
     {
-        if (! $this->files->exists($this->storage())) {
+        if (!$this->files->exists($this->storage())) {
             $this->files->makeDirectory($this->storage());
 
             $this->files->put($this->storage().'/.gitignore', "*\n!.gitignore");
@@ -183,8 +179,6 @@ class MailDebugManager
 
     /**
      * Delete previews older than the given life time configuration.
-     *
-     * @return void
      */
     private function cleanOldPreviews()
     {

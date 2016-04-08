@@ -62,9 +62,9 @@ class RouteServiceProvider extends ServiceProvider
     {
         $debug = $this->app->make(MailDebugManager::class);
 
-        $router->get('mail-debug/{file}', function($file) use ($debug) {
+        $router->get('mail-debug/{file}', function ($file) use ($debug) {
             if (file_exists($path = $debug->storage().'/'.$file)) {
-                return include($path);
+                return include $path;
             }
 
             return abort(404);

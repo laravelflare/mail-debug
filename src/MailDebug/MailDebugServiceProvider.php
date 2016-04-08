@@ -16,7 +16,7 @@ class MailDebugServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishConfig();
-        
+
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(MailServiceProvider::class);
     }
@@ -33,8 +33,6 @@ class MailDebugServiceProvider extends ServiceProvider
 
     /**
      * Register the Mail Debug instance.
-     *
-     * @return void
      */
     private function registerMailDebugManager()
     {
@@ -56,9 +54,7 @@ class MailDebugServiceProvider extends ServiceProvider
     }
 
     /**
-     * Merge Configuration with Base Config
-     *
-     * @return void
+     * Merge Configuration with Base Config.
      */
     private function mergeConfig()
     {

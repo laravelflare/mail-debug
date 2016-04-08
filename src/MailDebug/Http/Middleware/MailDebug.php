@@ -9,14 +9,14 @@ use LaravelFlare\MailDebug\MailDebugManager;
 class MailDebug
 {
     /**
-     * MailDebugManager Instance
+     * MailDebugManager Instance.
      * 
      * @var \LaravelFlare\MailDebug\MailDebugManager
      */
     protected $debug;
 
     /**
-     * __construct
+     * __construct.
      * 
      * @param MailDebugManager $debug
      */
@@ -52,7 +52,7 @@ class MailDebug
      * Used to determine if the application sent an email
      * in the last request.
      * 
-     * @return boolean
+     * @return bool
      */
     protected function sentMail()
     {

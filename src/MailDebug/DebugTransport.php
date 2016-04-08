@@ -18,9 +18,7 @@ class DebugTransport extends Transport
     /**
      * Create a new preview transport instance.
      *
-     * @param  \LaravelFlare\MailDebug\MailDebug $debug
-     *
-     * @return void
+     * @param \LaravelFlare\MailDebug\MailDebug $debug
      */
     public function __construct(MailDebugManager $debug)
     {
@@ -34,7 +32,7 @@ class DebugTransport extends Transport
      * The return value is the number of recipients who were accepted for delivery.
      *
      * @param \Swift_Mime_Message $message
-     * @param string[]           $failedRecipients An array of failures by-reference
+     * @param string[]            $failedRecipients An array of failures by-reference
      *
      * @return int
      */

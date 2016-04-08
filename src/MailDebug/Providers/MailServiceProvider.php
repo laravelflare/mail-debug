@@ -11,8 +11,6 @@ class MailServiceProvider extends ServiceProvider
 {
     /**
      * Register the Swift Mailer instance.
-     *
-     * @return void
      */
     public function registerSwiftMailer()
     {
