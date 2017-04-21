@@ -36,7 +36,7 @@ class MailDebugServiceProvider extends ServiceProvider
      */
     private function registerMailDebugManager()
     {
-        $this->app['flare.mailDebugManager'] = $this->app->share(function ($app) {
+        $this->app->singleton('flare.mailDebugManager', function ($app) {
             return new MailDebugManager(
                 $app->make(Filesystem::class)
             );
