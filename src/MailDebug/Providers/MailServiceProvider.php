@@ -20,7 +20,7 @@ class MailServiceProvider extends ServiceProvider
             return;
         }
 
-        $this->app['swift.mailer'] = $this->app->share(function ($app) {
+        $this->app->singleton('swift.mailer', function ($app) {
             return new Swift_Mailer(
                 new DebugTransport(
                     $app->make(MailDebugManager::class)
